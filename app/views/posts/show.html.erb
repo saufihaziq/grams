@@ -1,0 +1,21 @@
+<br>
+<div class = "container text-center">
+$<%=@post.price%><br>
+<%= time_ago_in_words(@post.time) unless @post.time.blank?%><br>
+<%= image_tag @post.images[0].display.url %><br>
+<span class="likes_count"> <%= @post.likes.count %> </span> <span class="likes-word"><%= 'like'.pluralize(@post.likes.count) %></span>
+<%= link_to post_likes_path(@post), class: 'likes-link' do %>
+Like<br>
+<%end%>
+<%= @post.caption %><br>
+<% @post.comments.each do |comment| %>
+<b><%= comment.user.fullname %></b>
+<%= comment.comments %><br>
+<%end%>
+<% if current_user.id == @post.user_id%>
+<%= link_to "Edit caption", edit_post_path, class: "btn btn-default" %>
+<%else%>
+<hr>
+<b> Enter address to buy this image </b>
+<%= render 'buyings/form'%>
+<%end%>

@@ -1,0 +1,7 @@
+<%= form_for @post do |post| %>
+<%= post.label "Select Image", class: "select-image-label" %>
+<%= post.file_field :images, multiple: true, onchange: "previewImage(event)", id: "new-image" %>
+<%= post.text_field :caption, placeholder: "Enter caption", id: "post-caption" %>
+<%= post.number_field :price, placeholder: "Place a price.."%>
+<%= post.submit "Post Image", class: "new-post-submit-button" %>
+<% end %>

@@ -1,0 +1,19 @@
+<div class = "col-sm-2"></div>
+<div class = "col-sm-8">
+<div class = "user-details text-center">
+<div class = "avatar">
+<%= image_tag @user.avatar.thumb unless @user.avatar.blank?%>
+</div>
+<h4><%=@user.fullname%></h4>
+<b><%=@user.username unless @user.username.blank?%></b><p>
+<%=@user.bio unless @user.bio.blank?%><br>
+<%=@user.website unless @user.website.blank?%><br>
+</div>
+<div class= "text-center ">
+<% @user_post.each do |post|%>
+<%= link_to image_tag (post.images[0].display.url if post.images[0])%><br>
+<hr>
+<%end%>
+</div>
+
+<div class = "col-sm-2"></div>

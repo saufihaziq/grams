@@ -1,0 +1,9 @@
+<%= form_for [@post, @buying] do |form| %>
+<%= form.hidden_field :post_id, value: @post.id %>  
+  
+    <div>
+    <%= form.label :address %>
+    <%= form.text_field :address%>
+    </div>
+    <%= form.submit "Submit" %>
+<%end%>
